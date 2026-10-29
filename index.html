@@ -1,0 +1,200 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Patitas del Barrio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Layout: encabezado simple + grilla de 3 tarjetas que pasa a una columna en el celular */
+:root {
+  --bg: #eef3f6;
+  --surface: #ffffff;
+  --fg: #23323b;
+  --muted: #5f707a;
+  --accent: #e0a321;
+  --tint-1: #d9e8f2;
+  --tint-2: #f6e3c7;
+  --tint-3: #e4ecd9;
+  --line: #d3dde3;
+  --display: "Baloo 2", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161e23; --surface: #1f2a31; --fg: #e8eef1; --muted: #9fb0ba;
+    --accent: #f0b93e; --tint-1: #24394a; --tint-2: #43361f; --tint-3: #2c3a26; --line: #2f3d46;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161e23; --surface: #1f2a31; --fg: #e8eef1; --muted: #9fb0ba;
+  --accent: #f0b93e; --tint-1: #24394a; --tint-2: #43361f; --tint-3: #2c3a26; --line: #2f3d46;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55;
+}
+.wrap {
+  max-width: 1040px; margin: 0 auto;
+  padding-block: 40px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 32px;
+}
+header { display: flex; flex-direction: column; gap: 6px; max-width: 60ch; }
+.eyebrow { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.05; margin: 0; text-wrap: balance; }
+h1 span { color: var(--accent); }
+header p { margin: 0; color: var(--muted); font-size: 17px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column; min-width: 0;
+}
+.pic { aspect-ratio: 4 / 3; max-width: 100%; display: grid; place-items: center; }
+.pic svg { width: 78%; height: auto; }
+.pic.t1 { background: var(--tint-1); } .pic.t2 { background: var(--tint-2); } .pic.t3 { background: var(--tint-3); }
+.info { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+.name { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; margin: 0; line-height: 1.1; }
+.kind { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.info p { margin: 0; color: var(--muted); }
+dl { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+dl div { display: flex; flex-direction: column; }
+dt { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+footer { color: var(--muted); font-size: 14px; }
+/* navegación entre páginas */
+nav { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+nav a { padding: 8px 16px; border-radius: 999px; color: var(--muted); text-decoration: none; font-weight: 700; transition: background .2s, color .2s; }
+nav a:hover { background: var(--tint-1); color: var(--fg); }
+nav a[aria-current="page"] { background: var(--accent); color: #23323b; }
+/* cards clicables: abren WhatsApp */
+.card { cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* colores de las ilustraciones */
+.ink { fill: var(--fg); }
+.white { fill: #fff; }
+</style>
+
+<div class="wrap">
+  <nav aria-label="Navegación principal">
+    <a href="http://luca.experto.legal/index.html">Inicio</a>
+    <a href="mascota.html" aria-current="page">Mascotas</a>
+    <a href="http://luca.experto.legal/prueba.html">Mercado Virtual</a>
+    <a href="http://luca.experto.legal/restaurante.html">Restaurante</a>
+  </nav>
+
+  <header>
+    <span class="eyebrow">Nuestras mascotas</span>
+    <h1>Patitas del <span>Barrio</span></h1>
+    <p>Conocé a los tres integrantes de la casa: un perro, una gata y un conejo, cada uno con su carácter.</p>
+  </header>
+
+  <main class="grid">
+    <article class="card">
+      <div class="pic t1" role="img" aria-label="Ilustración de un perro">
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <ellipse cx="100" cy="150" rx="60" ry="6" fill="#000" opacity=".08"/>
+          <ellipse cx="52" cy="62" rx="20" ry="38" fill="#8a5a33" transform="rotate(18 52 62)"/>
+          <ellipse cx="148" cy="62" rx="20" ry="38" fill="#8a5a33" transform="rotate(-18 148 62)"/>
+          <circle cx="100" cy="80" r="52" fill="#c68a52"/>
+          <ellipse cx="100" cy="106" rx="30" ry="22" fill="#f1d6b3"/>
+          <circle cx="80" cy="74" r="7" class="ink"/><circle cx="120" cy="74" r="7" class="ink"/>
+          <circle cx="82" cy="72" r="2.2" class="white"/><circle cx="122" cy="72" r="2.2" class="white"/>
+          <ellipse cx="100" cy="96" rx="10" ry="7" class="ink"/>
+          <path d="M100 103 v8 M90 112 q10 8 20 0" stroke="#3a2a1e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M96 116 q4 12 8 0" fill="#e86a6a"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name"><h2>Toby</h2><span class="kind">Perro</span></div>
+        <p>Mestizo juguetón. Ama las pelotas de tenis y los paseos largos por la plaza.</p>
+        <dl>
+          <div><dt>Edad</dt><dd>4 años</dd></div>
+          <div><dt>Peso</dt><dd>18 kg</dd></div>
+          <div><dt>Paseos</dt><dd>2 por día</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="pic t2" role="img" aria-label="Ilustración de una gata">
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <ellipse cx="100" cy="150" rx="60" ry="6" fill="#000" opacity=".08"/>
+          <path d="M54 58 L62 14 L92 40 Z" fill="#7d7f86"/>
+          <path d="M146 58 L138 14 L108 40 Z" fill="#7d7f86"/>
+          <path d="M64 46 L66 26 L82 40 Z" fill="#f2a9b4"/>
+          <path d="M136 46 L134 26 L118 40 Z" fill="#f2a9b4"/>
+          <circle cx="100" cy="84" r="52" fill="#9a9ca3"/>
+          <path d="M100 34 v14 M88 36 l4 12 M112 36 l-4 12" stroke="#7d7f86" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="80" cy="80" rx="8" ry="10" fill="#7cc36b"/><ellipse cx="120" cy="80" rx="8" ry="10" fill="#7cc36b"/>
+          <ellipse cx="80" cy="80" rx="2.5" ry="8" class="ink"/><ellipse cx="120" cy="80" rx="2.5" ry="8" class="ink"/>
+          <path d="M94 98 h12 l-6 7 Z" fill="#e48a99"/>
+          <path d="M100 105 q-6 8 -12 4 M100 105 q6 8 12 4" stroke="#3b3b40" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 100 h-30 M70 106 l-28 6 M130 100 h30 M130 106 l28 6" stroke="#3b3b40" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name"><h2>Mishi</h2><span class="kind">Gata</span></div>
+        <p>Tranquila y curiosa. Duerme al sol en la ventana y aparece justo a la hora de comer.</p>
+        <dl>
+          <div><dt>Edad</dt><dd>6 años</dd></div>
+          <div><dt>Peso</dt><dd>4,2 kg</dd></div>
+          <div><dt>Siestas</dt><dd>Muchas</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="pic t3" role="img" aria-label="Ilustración de un conejo">
+        <svg viewBox="0 0 200 160" aria-hidden="true">
+          <ellipse cx="100" cy="150" rx="56" ry="6" fill="#000" opacity=".08"/>
+          <ellipse cx="78" cy="38" rx="14" ry="38" fill="#f4f1ee" stroke="#d8d2cc" stroke-width="2" transform="rotate(-10 78 38)"/>
+          <ellipse cx="122" cy="38" rx="14" ry="38" fill="#f4f1ee" stroke="#d8d2cc" stroke-width="2" transform="rotate(10 122 38)"/>
+          <ellipse cx="78" cy="40" rx="6" ry="26" fill="#f2b6c0" transform="rotate(-10 78 40)"/>
+          <ellipse cx="122" cy="40" rx="6" ry="26" fill="#f2b6c0" transform="rotate(10 122 40)"/>
+          <circle cx="100" cy="96" r="48" fill="#f4f1ee" stroke="#d8d2cc" stroke-width="2"/>
+          <circle cx="82" cy="90" r="6.5" class="ink"/><circle cx="118" cy="90" r="6.5" class="ink"/>
+          <circle cx="84" cy="88" r="2" class="white"/><circle cx="120" cy="88" r="2" class="white"/>
+          <circle cx="70" cy="106" r="8" fill="#f2b6c0" opacity=".6"/><circle cx="130" cy="106" r="8" fill="#f2b6c0" opacity=".6"/>
+          <path d="M95 104 h10 l-5 5 Z" fill="#e48a99"/>
+          <rect x="94" y="114" width="12" height="10" rx="2" fill="#fff" stroke="#d8d2cc" stroke-width="1.5"/>
+          <path d="M100 114 v10" stroke="#d8d2cc" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="info">
+        <div class="name"><h2>Copo</h2><span class="kind">Conejo</span></div>
+        <p>Blanco como la nieve y muy goloso. Su comida favorita es la zanahoria con heno fresco.</p>
+        <dl>
+          <div><dt>Edad</dt><dd>2 años</dd></div>
+          <div><dt>Peso</dt><dd>1,8 kg</dd></div>
+          <div><dt>Zanahorias</dt><dd>1 por día</dd></div>
+        </dl>
+      </div>
+    </article>
+  </main>
+
+  <footer>Hecho con cariño para los amantes de los animales. · <a href="http://luca.experto.legal/index.html">← Volver al inicio</a></footer>
+</div>
+
+<script>
+// Cada card es un producto: al hacer clic abre WhatsApp con un mensaje sobre esa mascota
+(function () {
+  var NUMERO = '5492612655827';
+  document.querySelectorAll('.card').forEach(function (card) {
+    var nombre = card.querySelector('h2').textContent.trim();
+    var tipo = card.querySelector('.kind').textContent.trim().toLowerCase();
+    var texto = 'Hola! Me interesa ' + nombre + ' (' + tipo + '). ¿Me pueden dar más información?';
+    var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(texto);
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', nombre + ': consultar por WhatsApp');
+    var abrir = function () { window.open(url, '_blank', 'noopener'); };
+    card.addEventListener('click', abrir);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(); }
+    });
+  });
+})();
+</script></body></html>
